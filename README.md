@@ -17,15 +17,16 @@ HollowEngine 是一个使用 C++、SDL2 和 ImGui（cimgui）开发的实验性 
 本项目目前针对 Linux 环境优化。
 1. **安装依赖**:
    ```bash
-   sudo apt install libsdl2-dev libsdl2-image-dev
+   sudo apt update
+   sudo apt install build-essential pkg-config libsdl2-dev libsdl2-image-dev
 
 2. **编译**:
      ```bash
-      g++ -o HollowEngine Engine.cpp -lSDL2 -lSDL2_image -lGL
+   g++ -g $(pkg-config --cflags sdl2 SDL2_image) -Iinclude -Iinclude/imgui Engine.cpp include/imgui/imgui.cpp include/imgui/imgui_draw.cpp include/imgui/imgui_tables.cpp include/imgui/imgui_widgets.cpp include/imgui/backends/imgui_impl_sdl2.cpp include/imgui/backends/imgui_impl_sdlrenderer2.cpp -o Engine $(pkg-config --libs sdl2 SDL2_image)
      
 3. **运行**:
       ```bash
-      ./HollowEngine
+      ./Engine
 
 功能特点
 编辑器: 实时 3D 视口、ImGui 用户界面、属性检查器。
@@ -46,15 +47,16 @@ This project is currently optimized for Linux systems.
 
 1. **Install Dependencies**:
    ```bash
-   sudo apt install libsdl2-dev libsdl2-image-dev
+   sudo apt update
+   sudo apt install build-essential pkg-config libsdl2-dev libsdl2-image-dev
 
 2. **Compile**:
      ```bash
-      g++ -o HollowEngine Engine.cpp -lSDL2 -lSDL2_image -lGL
+   g++ -g $(pkg-config --cflags sdl2 SDL2_image) -Iinclude -Iinclude/imgui Engine.cpp include/imgui/imgui.cpp include/imgui/imgui_draw.cpp include/imgui/imgui_tables.cpp include/imgui/imgui_widgets.cpp include/imgui/backends/imgui_impl_sdl2.cpp include/imgui/backends/imgui_impl_sdlrenderer2.cpp -o Engine $(pkg-config --libs sdl2 SDL2_image)
      
 3. **Run**:
       ```bash
-      ./HollowEngine
+      ./Engine
 
 ## Key Features
 Editor: Real-time 3D viewport, Inspector, and Object creation panel.
